@@ -75,7 +75,6 @@ steps:
           --awsRegion << parameters.awsRegion >> \
           --awsSecretAccessKey << parameters.awsSecretAccessKey >> \
           --branch << parameters.branch >> \
-          --configFile << parameters.configFile >> \
           --outputDirectory /tmp/artifacts \
           --pr << parameters.pr >> \
           --sha << parameters.sha >> \
