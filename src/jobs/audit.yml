@@ -66,10 +66,6 @@ parameters:
     description: A comma-separated list of URLs to run Lighthouse audits against.
     type: string
     default: ""
-  verbose:
-    description: If yes, logs output along each step.
-    type: boolean
-    default: true
 
 steps:
   - run:
