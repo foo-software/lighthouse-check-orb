@@ -17,7 +17,7 @@ parameters:
   awsBucket:
     description: The AWS Bucket for an S3 bucket for optional HTML report upload.
     type: string
-    default: ${LIGHTHOUSE_CHECK_AWS_BUCKET}
+    default: $LIGHTHOUSE_CHECK_AWS_BUCKET
   awsRegion:
     description: The AWS region for an S3 bucket for optional HTML report upload.
     type: string
