@@ -1,0 +1,22 @@
+description: Run a simple Lighthouse audit.
+
+usage:
+  version: 2.1
+
+  orbs:
+    lighthouse-check: foo-software/lighthouse-check@0.0.1 # ideally a later version :)
+
+  workflows:
+    some-workflow:
+      jobs:
+        - lighthouse-check/audit:
+            urls: https://www.foo.software,https://www.foo.software/contact
+            # this serves as an example, however if the below environment variables
+            # are set - the below params aren't even necessary. for example - if
+            # LIGHTHOUSE_CHECK_AWS_ACCESS_KEY_ID is already set - you don't need
+            # the line below.
+            awsAccessKeyId: $LIGHTHOUSE_CHECK_AWS_ACCESS_KEY_ID
+            awsBucket: $LIGHTHOUSE_CHECK_AWS_BUCKET
+            awsRegion: $LIGHTHOUSE_CHECK_AWS_REGION
+            awsSecretAccessKey: $LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY
+            slackWebhookUrl: $LIGHTHOUSE_CHECK_SLACK_WEBHOOK_URL
