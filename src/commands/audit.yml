@@ -1,0 +1,14 @@
+description: Run a Lighthouse audit and save results
+
+parameters:
+  urls:
+    description: A comma-separated list of URLs to run Lighthouse audits against.
+    type: string
+    default: ""
+
+steps:
+  - run:
+      name: Run a Lighthouse audit and save results
+      command: |
+        lighthouse-check --verbose \
+          --urls << parameters.urls >> \

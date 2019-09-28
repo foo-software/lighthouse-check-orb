@@ -1,0 +1,3 @@
+version: 2.1
+
+description: A CircleCI Orb for running Lighthouse audits with all the bells and whistles 🔔 Multiple audits, Slack notifications and more!

@@ -1,0 +1,14 @@
+version: 2
+
+orbs:
+  lighthouse-check: foo-software/lighthouse-check@dev:alpha
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - lighthouse-check/audit:
+          urls: https://www.foo.software,https://www.foo.software/contact
+          # filters:
+          #   branches:
+          #     only: master
