@@ -1,4 +1,5 @@
 description: Run a Lighthouse audit and save results
+executor: alpine
 
 parameters:
   urls:
