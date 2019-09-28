@@ -1,6 +1,8 @@
 version: 2.1
+
 orbs:
   lighthouse-check: foo-software/lighthouse-check@dev:alpha
+
 workflows:
   test:
     jobs:
