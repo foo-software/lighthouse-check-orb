@@ -69,8 +69,18 @@ steps:
       command: |
         mkdir /tmp/artifacts
         lighthouse-check --verbose \
+          --author << parameters.author >> \
+          --awsAccessKeyId << parameters.awsAccessKeyId >> \
+          --awsBucket << parameters.awsBucket >> \
+          --awsRegion << parameters.awsRegion >> \
+          --awsSecretAccessKey << parameters.awsSecretAccessKey >> \
+          --branch << parameters.branch >> \
+          --configFile << parameters.configFile >> \
+          --outputDirectory /tmp/artifacts \
+          --pr << parameters.pr >> \
+          --sha << parameters.sha >> \
+          --slackWebhookUrl << parameters.slackWebhookUrl >> \
           --urls << parameters.urls >> \
-          --outputDirectory /tmp/artifacts
   - store_artifacts:
       name: Store Artifacts
       path: /tmp/artifacts
