@@ -1,0 +1,13 @@
+description: Run a simple Lighthouse audit.
+
+usage:
+  version: 2.1
+
+  orbs:
+    lighthouse-check: foo-software/lighthouse-check@0.0.1 # ideally a later version :)
+
+  workflows:
+    some-workflow:
+      jobs:
+        - lighthouse-check/audit:
+            urls: https://www.foo.software,https://www.foo.software/contact
