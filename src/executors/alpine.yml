@@ -1,2 +1,0 @@
-docker:
-  - image: foosoftware/lighthouse-check:latest
