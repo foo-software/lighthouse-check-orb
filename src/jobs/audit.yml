@@ -5,27 +5,27 @@ parameters:
   author:
     description: For Slack notifications - A user handle, typically from GitHub.
     type: string
-    default: ${CIRCLE_USERNAME}
+    default: $CIRCLE_USERNAME
   branch:
     description: For Slack notifications - A version control branch, typically from GitHub.
     type: string
-    default: ${CIRCLE_BRANCH}
+    default: $CIRCLE_BRANCH
   awsAccessKeyId:
     description: The AWS accessKeyId for an S3 bucket for optional HTML report upload.
     type: string
-    default: ${LIGHTHOUSE_CHECK_AWS_ACCESS_KEY_ID}
+    default: $LIGHTHOUSE_CHECK_AWS_ACCESS_KEY_ID
   awsBucket:
     description: The AWS Bucket for an S3 bucket for optional HTML report upload.
     type: string
-    default: ${LIGHTHOUSE_CHECK_AWS_BUCKET}
+    default: $LIGHTHOUSE_CHECK_AWS_BUCKET
   awsRegion:
     description: The AWS region for an S3 bucket for optional HTML report upload.
     type: string
-    default: ${LIGHTHOUSE_CHECK_AWS_REGION}
+    default: $LIGHTHOUSE_CHECK_AWS_REGION
   awsSecretAccessKey:
     description: The AWS secretAccessKey for an S3 bucket for optional HTML report upload.
     type: string
-    default: ${LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY}
+    default: $LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY
   configFile:
     description: A configuration file path in JSON format which holds all options defined here. This file should be relative to the file being interpretted. In this case it will most likely be the root of the repo ("./")
     type: string
@@ -41,15 +41,15 @@ parameters:
   pr:
     description: For Slack notifications - A version control pull request URL, typically from GitHub.
     type: string
-    default: ${CIRCLE_PULL_REQUEST}
+    default: $CIRCLE_PULL_REQUEST
   slackWebhookUrl:
     description: A Slack Incoming Webhook URL to send notifications to.
     type: string
-    default: ${LIGHTHOUSE_CHECK_SLACK_WEBHOOK_URL}
+    default: $LIGHTHOUSE_CHECK_SLACK_WEBHOOK_URL
   sha:
     description: For Slack notifications - A version control sha, typically from GitHub.
     type: string
-    default: ${CIRCLE_SHA1}
+    default: $CIRCLE_SHA1
   throttlingMethod:
     description: Lighthouse setting only used for local audits. See lighthouse-check NPM module comments for details.
     type: string

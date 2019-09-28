@@ -7,6 +7,7 @@ workflows:
   test:
     jobs:
       - lighthouse-check/audit:
+          awsRegion: foobar
           urls: https://www.foo.software,https://www.foo.software/contact
           filters:
             branches:
