@@ -8,6 +8,6 @@ workflows:
     jobs:
       - lighthouse-check/audit:
           urls: https://www.foo.software,https://www.foo.software/contact
-          # filters:
-          #   branches:
-          #     only: master
+          filters:
+            branches:
+              only: master
