@@ -4,6 +4,8 @@ orbs:
   lighthouse-check: foo-software/lighthouse-check@dev:alpha
 
 jobs:
+  docker:
+    - image: circleci/node:10.15.0
   test:
     steps:
       - checkout
