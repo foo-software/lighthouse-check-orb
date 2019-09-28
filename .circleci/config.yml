@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 orbs:
   lighthouse-check: foo-software/lighthouse-check@dev:alpha
@@ -9,7 +9,7 @@ jobs:
       - checkout
 
 workflows:
-  version: 2
+  version: 2.1
   test:
     jobs:
       - lighthouse-check/audit:
