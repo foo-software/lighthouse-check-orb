@@ -13,7 +13,7 @@ usage:
         - lighthouse-check/audit:
             urls: https://www.foo.software,https://www.foo.software/contact
 
-workflows:
-  test:
-    jobs:
-      - test
+  workflows:
+    test:
+      jobs:
+        - test
