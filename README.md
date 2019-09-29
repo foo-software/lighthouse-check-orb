@@ -150,11 +150,12 @@ In the below example we run Lighthouse on two URLs, log scores, save the HTML re
 version: 2.1
 
 orbs:
-  lighthouse-check: foo-software/lighthouse-check@0.0.3 # ideally a later version :)
+  lighthouse-check: foo-software/lighthouse-check@0.0.3
 
-workflows:
-  some-workflow:
-    jobs:
+jobs:
+  test: 
+    executor: lighthouse-check/default
+    steps:
       - lighthouse-check/audit:
           urls: https://www.foo.software,https://www.foo.software/contact
           # this serves as an example, however if the below environment variables
@@ -166,6 +167,11 @@ workflows:
           awsRegion: $LIGHTHOUSE_CHECK_AWS_REGION
           awsSecretAccessKey: $LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY
           slackWebhookUrl: $LIGHTHOUSE_CHECK_SLACK_WEBHOOK_URL
+
+workflows:
+  test:
+    jobs:
+      - test
 ```
 
 ## Credits
