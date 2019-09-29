@@ -26,7 +26,8 @@ steps:
   - run:
       name: Validate Lighthouse results
       command: |
-        lighthouse-check-status --outputDirectory /tmp/artifacts \
+        lighthouse-check-status --verbose \
+          --outputDirectory /tmp/artifacts \
           --minAccessibilityScore << parameters.minAccessibilityScore >> \
           --minBestPracticesScore << parameters.minBestPracticesScore >>\
           --minPerformanceScore << parameters.minPerformanceScore >> \
