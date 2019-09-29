@@ -8,9 +8,10 @@ jobs:
     executor: lighthouse-check/default
     steps:
       - lighthouse-check/audit:
-          configFile: "./lighthouse-check.json"
-          awsAccessKeyId: $AWS_ACCESS_KEY_ID
-          awsBucket: $AWS_BUCKET
-          awsRegion: $AWS_REGION
-          awsSecretAccessKey: $AWS_SECRET_ACCESS_KEY
-          slackWebhookUrl: $SLACK_WEBHOOK_URL
+          urls: https://www.foo.software,https://www.foo.software/contact
+
+workflows:
+  - test
+      filters:
+        branches:
+          only: master
