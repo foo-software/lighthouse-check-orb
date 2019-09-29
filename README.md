@@ -31,7 +31,7 @@ Simple configuration or choose from a variety of features below. See the [exampl
 <img alt="Lighthouse Check Orb output" src="https://lighthouse-check.s3.amazonaws.com/images/circleci/circleci-orb-lighthouse-check-output.png" />
 
 ## Screenshot: Save HTML Reports as Artifacts
-<img alt="Lighthouse Check Orb save artifacts" src="https://lighthouse-check.s3.amazonaws.com/images/circleci/circleci-orb-lighthouse-check-artifacts.png" width="600" />
+<img alt="Lighthouse Check Orb save artifacts" src="https://lighthouse-check.s3.amazonaws.com/images/circleci/circleci-orb-lighthouse-check-artifacts.png" />
 
 ## Screenshot: HTML Reports
 <img alt="Lighthouse Check Orb HTML report" src="https://lighthouse-check.s3.amazonaws.com/images/circleci/circleci-orb-lighthouse-check-report.png" />
