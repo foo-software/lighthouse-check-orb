@@ -138,7 +138,7 @@ In the below example we run Lighthouse on two URLs, log scores, save the HTML re
 version: 2.1
 
 orbs:
-  lighthouse-check: foo-software/lighthouse-check@0.0.3 # ideally later :)
+  lighthouse-check: foo-software/lighthouse-check@0.0.4 # ideally later :)
 
 jobs:
   test: 
