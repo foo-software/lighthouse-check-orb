@@ -1,0 +1,34 @@
+description: Validate results of Lighthouse audits from minimum score requirements. Fail the job if requirements aren't met.
+
+parameters:
+  minAccessibilityScore:
+    description: The minimum accessibility Lighthouse score required.
+    type: string
+    default: ""
+  minBestPracticesScore:
+    description: The minimum best practices Lighthouse score required.
+    type: string
+    default: ""
+  minPerformanceScore:
+    description: The minimum performance Lighthouse score required.
+    type: string
+    default: ""
+  minProgressiveWebAppScore:
+    description: The minimum progressive web app Lighthouse score required.
+    type: string
+    default: ""
+  minSeoScore:
+    description: The minimum SEO Lighthouse score required.
+    type: string
+    default: ""
+
+steps:
+  - run:
+      name: Validate Lighthouse results
+      command: |
+        lighthouse-check-status --outputDirectory /tmp/artifacts \
+          --minAccessibilityScore << parameters.minAccessibilityScore >> \
+          --minBestPracticesScore << parameters.minBestPracticesScore >>\
+          --minPerformanceScore << parameters.minPerformanceScore >> \
+          --minProgressiveWebAppScore << parameters.minProgressiveWebAppScore >> \
+          --minSeoScore << parameters.minSeoScore >>
