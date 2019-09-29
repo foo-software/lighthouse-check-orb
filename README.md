@@ -155,7 +155,7 @@ In the below example we run Lighthouse on two URLs, log scores, save the HTML re
 version: 2.1
 
 orbs:
-  lighthouse-check: foo-software/lighthouse-check@0.0.4 # ideally later :)
+  lighthouse-check: foo-software/lighthouse-check@0.0.6 # ideally later :)
 
 jobs:
   test: 
@@ -187,7 +187,7 @@ We can optionally fail a workflow if minimum scores aren't met. We do this using
 version: 2.1
 
 orbs:
-  lighthouse-check: foo-software/lighthouse-check@0.0.4 # ideally later :)
+  lighthouse-check: foo-software/lighthouse-check@0.0.6 # ideally later :)
 
 jobs:
   test: 
