@@ -13,4 +13,7 @@ jobs:
 workflows:
   test:
     jobs:
-      - test
+      - test:
+          filters:
+            branches:
+              only: master
