@@ -21,3 +21,8 @@ usage:
             awsRegion: $LIGHTHOUSE_CHECK_AWS_REGION
             awsSecretAccessKey: $LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY
             slackWebhookUrl: $LIGHTHOUSE_CHECK_SLACK_WEBHOOK_URL
+
+  workflows:
+    test:
+      jobs:
+        - test
