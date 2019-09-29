@@ -12,3 +12,8 @@ usage:
       steps:
         - lighthouse-check/audit:
             urls: https://www.foo.software,https://www.foo.software/contact
+
+workflows:
+  test-deploy-post-deploy:
+    jobs:
+      - test
