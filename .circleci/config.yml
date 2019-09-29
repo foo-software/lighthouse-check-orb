@@ -3,11 +3,14 @@ version: 2.1
 orbs:
   lighthouse-check: foo-software/lighthouse-check@dev:alpha
 
-workflows:
-  test:
-    jobs:
+jobs:
+  test: 
+    executor: lighthouse-check/default
+    steps:
       - lighthouse-check/audit:
-          urls: https://www.foo.software,https://www.foo.software/contact
-          filters:
-            branches:
-              only: master
+          configFile: "./lighthouse-check.json"
+          awsAccessKeyId: $AWS_ACCESS_KEY_ID
+          awsBucket: $AWS_BUCKET
+          awsRegion: $AWS_REGION
+          awsSecretAccessKey: $AWS_SECRET_ACCESS_KEY
+          slackWebhookUrl: $SLACK_WEBHOOK_URL

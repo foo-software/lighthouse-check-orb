@@ -1,5 +1,4 @@
 description: Run a Lighthouse audit and save results
-executor: default
 
 parameters:
   author:

@@ -1,14 +1,15 @@
-description: Run a simple Lighthouse audit.
+description: Run a Lighthouse audit with advanced settings.
 
 usage:
   version: 2.1
 
   orbs:
-    lighthouse-check: foo-software/lighthouse-check@0.0.1 # ideally a later version :)
+    lighthouse-check: foo-software/lighthouse-check@dev:alpha
 
-  workflows:
-    some-workflow:
-      jobs:
+  jobs:
+    test: 
+      executor: lighthouse-check/default
+      steps:
         - lighthouse-check/audit:
             urls: https://www.foo.software,https://www.foo.software/contact
             # this serves as an example, however if the below environment variables
