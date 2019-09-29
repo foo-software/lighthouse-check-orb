@@ -5,10 +5,6 @@ parameters:
     description: For Slack notifications - A user handle, typically from GitHub.
     type: string
     default: $CIRCLE_USERNAME
-  branch:
-    description: For Slack notifications - A version control branch, typically from GitHub.
-    type: string
-    default: $CIRCLE_BRANCH
   awsAccessKeyId:
     description: The AWS accessKeyId for an S3 bucket for optional HTML report upload.
     type: string
@@ -25,6 +21,10 @@ parameters:
     description: The AWS secretAccessKey for an S3 bucket for optional HTML report upload.
     type: string
     default: $LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY
+  branch:
+    description: For Slack notifications - A version control branch, typically from GitHub.
+    type: string
+    default: $CIRCLE_BRANCH
   configFile:
     description: A configuration file path in JSON format which holds all options defined here. This file should be relative to the file being interpretted. In this case it will most likely be the root of the repo ("./")
     type: string
@@ -41,19 +41,19 @@ parameters:
     description: For Slack notifications - A version control pull request URL, typically from GitHub.
     type: string
     default: $CIRCLE_PULL_REQUEST
-  slackWebhookUrl:
-    description: A Slack Incoming Webhook URL to send notifications to.
-    type: string
-    default: $LIGHTHOUSE_CHECK_SLACK_WEBHOOK_URL
   sha:
     description: For Slack notifications - A version control sha, typically from GitHub.
     type: string
     default: $CIRCLE_SHA1
-  throttlingMethod:
+  slackWebhookUrl:
+    description: A Slack Incoming Webhook URL to send notifications to.
+    type: string
+    default: $LIGHTHOUSE_CHECK_SLACK_WEBHOOK_URL
+  throttling:
     description: Lighthouse setting only used for local audits. See lighthouse-check NPM module comments for details.
     type: string
     default: ""
-  throttling:
+  throttlingMethod:
     description: Lighthouse setting only used for local audits. See lighthouse-check NPM module comments for details.
     type: string
     default: ""
@@ -74,10 +74,15 @@ steps:
           --awsRegion << parameters.awsRegion >> \
           --awsSecretAccessKey << parameters.awsSecretAccessKey >> \
           --branch << parameters.branch >> \
+          --configFile << parameters.configFile >> \
+          --emulatedFormFactor << parameters.emulatedFormFactor >> \
+          --locale << parameters.locale >> \
           --outputDirectory /tmp/artifacts \
           --pr << parameters.pr >> \
           --sha << parameters.sha >> \
           --slackWebhookUrl << parameters.slackWebhookUrl >> \
+          --throttling << parameters.throttling >> \
+          --throttlingMethod << parameters.throttlingMethod >> \
           --urls << parameters.urls >> \
   - store_artifacts:
       name: Store Artifacts

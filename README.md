@@ -45,12 +45,6 @@ All fields are optional with the exception of either `urls` or `configFile`.
     <td><code>$CIRCLE_USERNAME</code></td>
   </tr>
   <tr>
-    <td><code>branch</code></td>
-    <td>For Slack notifications: A version control branch, typically from GitHub.</td>
-    <td><code>string</code></td>
-    <td><code>$CIRCLE_BRANCH</code></td>
-  </tr>
-  <tr>
     <td><code>awsAccessKeyId</code></td>
     <td>The AWS <code>accessKeyId</code> for an S3 bucket.</td>
     <td><code>string</code></td>
@@ -75,6 +69,12 @@ All fields are optional with the exception of either `urls` or `configFile`.
     <td><code>$LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY</code></td>
   </tr>
   <tr>
+    <td><code>branch</code></td>
+    <td>For Slack notifications: A version control branch, typically from GitHub.</td>
+    <td><code>string</code></td>
+    <td><code>$CIRCLE_BRANCH</code></td>
+  </tr>
+  <tr>
     <td><code>configFile</code></td>
     <td>A configuration file path in JSON format which holds all options defined here. This file should be relative to the file being interpretted. In this case it will most likely be the root of the repo ("./")</td>
     <td><code>string</code></td>
@@ -93,14 +93,14 @@ All fields are optional with the exception of either `urls` or `configFile`.
     <td><code>undefined</code></td>
   </tr>
   <tr>
-    <td><code>outputDirectory</code></td>
-    <td>An absolute directory path to output report. You can do this an an alternative or combined with an S3 upload.</td>
+    <td><code>pr</code></td>
+    <td>For Slack notifications: A version control pull request URL, typically from GitHub.</td>
     <td><code>string</code></td>
     <td><code>undefined</code></td>
   </tr>
   <tr>
-    <td><code>pr</code></td>
-    <td>For Slack notifications: A version control pull request URL, typically from GitHub.</td>
+    <td><code>sha</code></td>
+    <td>For Slack notifications: A version control <code>sha</code>, typically from GitHub.</td>
     <td><code>string</code></td>
     <td><code>undefined</code></td>
   </tr>
@@ -111,10 +111,10 @@ All fields are optional with the exception of either `urls` or `configFile`.
     <td><code>$LIGHTHOUSE_CHECK_SLACK_WEBHOOK_URL</code></td>
   </tr>
   <tr>
-    <td><code>sha</code></td>
-    <td>For Slack notifications: A version control <code>sha</code>, typically from GitHub.</td>
-    <td><code>string</code></td>
-    <td><code>undefined</code></td>
+    <td><code>throttling</code></td>
+    <td>Lighthouse setting only used for local audits. See <a href="https://github.com/foo-software/lighthouse-check/tree/master/src/lighthouseConfig.js"><code>lighthouse-check</code></a> comments for details.</td>
+    <td><code>oneOf(['mobileSlow4G', 'mobileRegluar3G'])</code></td>
+    <td><code>mobileSlow4G</code></td>
   </tr>
   <tr>
     <td><code>throttlingMethod</code></td>
@@ -123,22 +123,10 @@ All fields are optional with the exception of either `urls` or `configFile`.
     <td><code>simulate</code></td>
   </tr>
   <tr>
-    <td><code>throttling</code></td>
-    <td>Lighthouse setting only used for local audits. See <a href="https://github.com/foo-software/lighthouse-check/tree/master/src/lighthouseConfig.js"><code>lighthouse-check</code></a> comments for details.</td>
-    <td><code>oneOf(['mobileSlow4G', 'mobileRegluar3G'])</code></td>
-    <td><code>mobileSlow4G</code></td>
-  </tr>
-  <tr>
     <td><code>urls</code></td>
     <td>A comma-separated list of URLs to be audited.</td>
     <td><code>string</code></td>
     <td><code>undefined</code></td>
-  </tr>
-  <tr>
-    <td><code>verbose</code></td>
-    <td>If <code>true</code>, print out steps and results to the console.</td>
-    <td><code>boolean</code></td>
-    <td><code>true</code></td>
   </tr>
 </table>
 
