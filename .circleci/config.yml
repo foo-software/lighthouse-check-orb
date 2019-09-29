@@ -11,9 +11,6 @@ jobs:
           urls: https://www.foo.software,https://www.foo.software/contact
 
 workflows:
-  test-deploy-post-deploy:
+  test:
     jobs:
       - test
-          filters:
-            branches:
-              only: master
