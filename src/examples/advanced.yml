@@ -21,6 +21,12 @@ usage:
             awsRegion: $LIGHTHOUSE_CHECK_AWS_REGION
             awsSecretAccessKey: $LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY
             slackWebhookUrl: $LIGHTHOUSE_CHECK_SLACK_WEBHOOK_URL
+        - lighthouse-check/validate-status:
+            minAccessibilityScore: "50"
+            minBestPracticesScore: "50"
+            minPerformanceScore: "99"
+            minProgressiveWebAppScore: "50"
+            minSeoScore: "50"
 
   workflows:
     test:

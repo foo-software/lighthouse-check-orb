@@ -24,6 +24,7 @@ Simple configuration or choose from a variety of features below. See the [exampl
 - 💗 Save HTML reports locally.
 - 💚 Upload HTML reports as artifacts.
 - 💙 Upload HTML reports to AWS S3.
+- ❤️ Fail a workflow when minimum scores aren't met. [Example at the bottom](#user-content-example-usage-failing-workflows-by-enforcing-minimum-scores).
 - 💜 **Slack** notifications.
 - 💖 Slack notifications **with Git info** (author, branch, PR, etc).
 
@@ -38,6 +39,10 @@ Simple configuration or choose from a variety of features below. See the [exampl
 
 ## Screenshot: Slack Notifications
 <img alt="Lighthouse Check Orb Slack notification" src="https://lighthouse-check.s3.amazonaws.com/images/circleci/circleci-orb-lighthouse-check-slack.png" width="600" />
+
+## Screenshot: Fail Workflow when Minimum Scores Aren't Met
+
+<img alt="Lighthouse Check Orb fail if scores don't meet minimum requirement on a PR" src="https://lighthouse-check.s3.amazonaws.com/images/circleci/circleci-orb-lighthouse-check-fail.png" />
 
 ## Parameters
 
@@ -167,6 +172,35 @@ jobs:
           awsRegion: $LIGHTHOUSE_CHECK_AWS_REGION
           awsSecretAccessKey: $LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY
           slackWebhookUrl: $LIGHTHOUSE_CHECK_SLACK_WEBHOOK_URL
+
+workflows:
+  test:
+    jobs:
+      - test
+```
+
+## Example Usage: Failing Workflows by Enforcing Minimum Scores
+
+We can optionally fail a workflow if minimum scores aren't met. We do this using the `validate-status` command.
+
+```yaml
+version: 2.1
+
+orbs:
+  lighthouse-check: foo-software/lighthouse-check@0.0.4 # ideally later :)
+
+jobs:
+  test: 
+    executor: lighthouse-check/default
+    steps:
+      - lighthouse-check/audit:
+          urls: https://www.foo.software,https://www.foo.software/contact
+      - lighthouse-check/validate-status:
+          minAccessibilityScore: "50"
+          minBestPracticesScore: "50"
+          minPerformanceScore: "99"
+          minProgressiveWebAppScore: "50"
+          minSeoScore: "50"
 
 workflows:
   test:
