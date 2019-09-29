@@ -9,3 +9,9 @@ jobs:
     steps:
       - lighthouse-check/audit:
           urls: https://www.foo.software,https://www.foo.software/contact
+
+workflows:
+  - test
+      filters:
+        branches:
+          only: master
