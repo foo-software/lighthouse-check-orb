@@ -27,6 +27,18 @@ Simple configuration or choose from a variety of features below. See the [exampl
 - 💜 **Slack** notifications.
 - 💖 Slack notifications **with Git info** (author, branch, PR, etc).
 
+## Screenshot: Output
+<img alt="Lighthouse Check Orb output" src="https://lighthouse-check.s3.amazonaws.com/images/circleci/circleci-orb-lighthouse-check-output.png" />
+
+## Screenshot: Save HTML Reports as Artifacts
+<img alt="Lighthouse Check Orb save artifacts" src="https://lighthouse-check.s3.amazonaws.com/images/circleci/circleci-orb-lighthouse-check-artifacts.png" width="600" />
+
+## Screenshot: HTML Reports
+<img alt="Lighthouse Check Orb HTML report" src="https://lighthouse-check.s3.amazonaws.com/images/circleci/circleci-orb-lighthouse-check-report.png" />
+
+## Screenshot: Slack Notifications
+<img alt="Lighthouse Check Orb Slack notification" src="https://lighthouse-check.s3.amazonaws.com/images/circleci/circleci-orb-lighthouse-check-slack.png" width="600" />
+
 ## Parameters
 
 All fields are optional with the exception of either `urls` or `configFile`.
