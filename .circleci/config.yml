@@ -8,7 +8,7 @@ jobs:
     executor: lighthouse-check/default
     steps:
       - lighthouse-check/audit:
-          urls: https://www.foo.software,https://www.foo.software/contact
+          urls: https://www.foo.software,https://www.foo.software/tag/articles/
       - lighthouse-check/validate-status:
           minAccessibilityScore: "30"
           minBestPracticesScore: "30"
@@ -20,6 +20,10 @@ workflows:
   test:
     jobs:
       - test:
+          filters:
+            branches:
+              only: master
+      - test-automated-lighthouse-check:
           filters:
             branches:
               only: master
