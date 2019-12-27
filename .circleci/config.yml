@@ -15,6 +15,9 @@ jobs:
           minPerformanceScore: "30"
           minProgressiveWebAppScore: "30"
           minSeoScore: "30"
+      - lighthouse-check/audit:
+          urls: $LIGHTHOUSE_CHECK_URLS
+          tag: Orb
 
 workflows:
   test:
