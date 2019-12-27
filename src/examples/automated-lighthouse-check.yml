@@ -1,0 +1,20 @@
+description: Run a Lighthouse audits from automated-lighthouse-check.com.
+
+usage:
+  version: 2.1
+
+  orbs:
+    lighthouse-check: foo-software/lighthouse-check@0.0.7 # ideally later :)
+
+  jobs:
+    test: 
+      executor: lighthouse-check/default
+      steps:
+        - lighthouse-check/audit:
+            apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
+            urls: 'mypagetoken1,mypagetoken2'
+
+  workflows:
+    test:
+      jobs:
+        - test
