@@ -31,7 +31,7 @@ workflows:
               only: master
   test-automated-lighthouse-check:
     jobs:
-      - test:
+      - test-automated-lighthouse-check:
           filters:
             branches:
               only: master
