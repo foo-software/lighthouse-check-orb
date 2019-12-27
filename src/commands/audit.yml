@@ -1,6 +1,10 @@
 description: Run a Lighthouse audit and save results
 
 parameters:
+  apiToken:
+    description: The automated-lighthouse-check.com account API token found in the dashboard.
+    type: string
+    default: $LIGHTHOUSE_CHECK_API_TOKEN
   author:
     description: For Slack notifications - A user handle, typically from GitHub.
     type: string
@@ -49,6 +53,10 @@ parameters:
     description: A Slack Incoming Webhook URL to send notifications to.
     type: string
     default: $LIGHTHOUSE_CHECK_SLACK_WEBHOOK_URL
+  tag:
+    description: 'An optional tag or name (example: "build #2" or "v0.0.2").'
+    type: string
+    default: ""
   throttling:
     description: Lighthouse setting only used for local audits. See lighthouse-check NPM module comments for details.
     type: string
@@ -57,10 +65,16 @@ parameters:
     description: Lighthouse setting only used for local audits. See lighthouse-check NPM module comments for details.
     type: string
     default: ""
-  urls:
-    description: A comma-separated list of URLs to run Lighthouse audits against.
+  timeout:
+    description: 'Minutes to timeout for remote runs. If "wait" option is "true" (it is by default), we wait for results. If this timeout is met before results are received an error is thrown.'
     type: string
     default: ""
+  urls:
+    description: A comma-separated list of URLs (or page API tokens if running remotely).
+    type: string
+    default: ""
+  wait:
+    description: 'If "true", for remote runs, waits for all audit results to be returned, otherwise URLs are only enqueued.'
 
 steps:
   - run:
@@ -68,6 +82,7 @@ steps:
       command: |
         mkdir /tmp/artifacts
         lighthouse-check --verbose \
+          --apiToken << parameters.apiToken >> \
           --author << parameters.author >> \
           --awsAccessKeyId << parameters.awsAccessKeyId >> \
           --awsBucket << parameters.awsBucket >> \
@@ -76,14 +91,18 @@ steps:
           --branch << parameters.branch >> \
           --configFile << parameters.configFile >> \
           --emulatedFormFactor << parameters.emulatedFormFactor >> \
+          --isOrb true \
           --locale << parameters.locale >> \
           --outputDirectory /tmp/artifacts \
           --pr << parameters.pr >> \
           --sha << parameters.sha >> \
           --slackWebhookUrl << parameters.slackWebhookUrl >> \
+          --tag << parameters.tag >> \
           --throttling << parameters.throttling >> \
           --throttlingMethod << parameters.throttlingMethod >> \
+          --timeout << parameters.timeout >> \
           --urls << parameters.urls >> \
+          --wait << parameters.wait >> \
   - store_artifacts:
       name: Store Artifacts
       path: /tmp/artifacts
