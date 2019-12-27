@@ -19,6 +19,7 @@ jobs:
     executor: lighthouse-check/default
     steps:
       - lighthouse-check/audit:
+          apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
           urls: $LIGHTHOUSE_CHECK_URLS
           tag: Orb
 

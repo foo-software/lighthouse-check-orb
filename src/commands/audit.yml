@@ -4,7 +4,7 @@ parameters:
   apiToken:
     description: The automated-lighthouse-check.com account API token found in the dashboard.
     type: string
-    default: $LIGHTHOUSE_CHECK_API_TOKEN
+    default: ""
   author:
     description: For Slack notifications - A user handle, typically from GitHub.
     type: string
