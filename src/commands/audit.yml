@@ -81,7 +81,7 @@ steps:
       name: Run a Lighthouse audit and save results
       command: |
         mkdir /tmp/artifacts
-        lighthouse-check --verbose \
+        lighthouse-check --verbose --isOrb \
           --apiToken << parameters.apiToken >> \
           --author << parameters.author >> \
           --awsAccessKeyId << parameters.awsAccessKeyId >> \
@@ -91,7 +91,6 @@ steps:
           --branch << parameters.branch >> \
           --configFile << parameters.configFile >> \
           --emulatedFormFactor << parameters.emulatedFormFactor >> \
-          --isOrb true \
           --locale << parameters.locale >> \
           --outputDirectory /tmp/artifacts \
           --pr << parameters.pr >> \
