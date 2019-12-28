@@ -84,7 +84,7 @@ parameters:
   wait:
     description: 'If "true", for remote runs, waits for all audit results to be returned, otherwise URLs are only enqueued.'
     type: boolean
-    default: false
+    default: true
 
 steps:
   - run:
