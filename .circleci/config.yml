@@ -22,6 +22,15 @@ jobs:
           apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
           urls: $LIGHTHOUSE_CHECK_URLS
           tag: Orb
+  test-automated-lighthouse-check-with-pr-comments: 
+    executor: lighthouse-check/default
+    steps:
+      - lighthouse-check/audit:
+          apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
+          prCommentAccessToken: $LIGHTHOUSE_CHECK_ACCESS_TOKEN
+          prCommentUrl: https://api.github.com/repos/foo-software/lighthouse-check-orb/pulls/${CIRCLE_PULL_REQUEST##*/}/reviews
+          urls: $LIGHTHOUSE_CHECK_URLS
+          tag: Orb
 
 workflows:
   test:
@@ -36,3 +45,7 @@ workflows:
           filters:
             branches:
               only: master
+  test-automated-lighthouse-check-with-pr-comments:
+    jobs:
+      - test-automated-lighthouse-check-with-pr-comments
+
