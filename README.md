@@ -335,7 +335,7 @@ usage:
   version: 2.1
 
   orbs:
-    lighthouse-check: foo-software/lighthouse-check@0.0.7 # ideally later :)
+    lighthouse-check: foo-software/lighthouse-check@0.0.8 # ideally later :)
 
   jobs:
     test: 
@@ -343,6 +343,31 @@ usage:
       steps:
         - lighthouse-check/audit:
             apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
+            urls: 'mypagetoken1,mypagetoken2'
+
+  workflows:
+    test:
+      jobs:
+        - test
+```
+
+> Example with pull request comments
+
+```yaml
+usage:
+  version: 2.1
+
+  orbs:
+    lighthouse-check: foo-software/lighthouse-check@0.0.8 # ideally later :)
+
+  jobs:
+    test: 
+      executor: lighthouse-check/default
+      steps:
+        - lighthouse-check/audit:
+            apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
+            prCommentAccessToken: $LIGHTHOUSE_CHECK_ACCESS_TOKEN
+            prCommentUrl: https://api.github.com/repos/foo-software/lighthouse-check-orb/pulls/${CIRCLE_PULL_REQUEST##*/}/reviews
             urls: 'mypagetoken1,mypagetoken2'
 
   workflows:
