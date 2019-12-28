@@ -47,5 +47,7 @@ workflows:
               only: master
   test-automated-lighthouse-check-with-pr-comments:
     jobs:
-      - test-automated-lighthouse-check-with-pr-comments
-
+      - test-automated-lighthouse-check-with-pr-comments:
+          shell: /bin/sh -leo pipefail
+          environment:
+            - BASH_ENV: /etc/profile
