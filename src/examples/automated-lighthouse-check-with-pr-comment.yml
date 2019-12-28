@@ -1,4 +1,4 @@
-description: Run a Lighthouse audits from automated-lighthouse-check.com.
+description: Run a Lighthouse audits from automated-lighthouse-check.com and posts results as PR comments.
 
 usage:
   version: 2.1
@@ -12,6 +12,8 @@ usage:
       steps:
         - lighthouse-check/audit:
             apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
+            prCommentAccessToken: $LIGHTHOUSE_CHECK_ACCESS_TOKEN
+            prCommentUrl: https://api.github.com/repos/foo-software/lighthouse-check-orb/pulls/${CIRCLE_PULL_REQUEST##*/}/reviews
             urls: 'mypagetoken1,mypagetoken2'
 
   workflows:

@@ -155,6 +155,20 @@ You can choose from two ways of running audits - "locally" in a dockerized envir
     <td><code>undefined</code></td>
   </tr>
   <tr>
+    <td><code>prCommentAccessToken</code></td>
+    <td><a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">Access token</a> of a user to post PR comments.</td>
+    <td><code>string</code></td>
+    <td><code>both</code></td>
+    <td><code>undefined</code></td>
+  </tr>
+  <tr>
+    <td><code>prCommentUrl</code></td>
+    <td>An endpoint to post comments to. Typically this will from <a href="https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review">GitHub's API</a>. Example: <code>https://api.github.com/repos/:owner/:repo/pulls/:pull_number/reviews</code></td>
+    <td><code>string</code></td>
+    <td><code>both</code></td>
+    <td><code>undefined</code></td>
+  </tr>
+  <tr>
     <td><code>sha</code></td>
     <td>For Slack notifications: A version control <code>sha</code>, typically from GitHub.</td>
     <td><code>string</code></td>
@@ -321,7 +335,7 @@ usage:
   version: 2.1
 
   orbs:
-    lighthouse-check: foo-software/lighthouse-check@0.0.7 # ideally later :)
+    lighthouse-check: foo-software/lighthouse-check@0.0.8 # ideally later :)
 
   jobs:
     test: 
@@ -329,6 +343,31 @@ usage:
       steps:
         - lighthouse-check/audit:
             apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
+            urls: 'mypagetoken1,mypagetoken2'
+
+  workflows:
+    test:
+      jobs:
+        - test
+```
+
+> Example with pull request comments
+
+```yaml
+usage:
+  version: 2.1
+
+  orbs:
+    lighthouse-check: foo-software/lighthouse-check@0.0.8 # ideally later :)
+
+  jobs:
+    test: 
+      executor: lighthouse-check/default
+      steps:
+        - lighthouse-check/audit:
+            apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
+            prCommentAccessToken: $LIGHTHOUSE_CHECK_ACCESS_TOKEN
+            prCommentUrl: https://api.github.com/repos/foo-software/lighthouse-check-orb/pulls/${CIRCLE_PULL_REQUEST##*/}/reviews
             urls: 'mypagetoken1,mypagetoken2'
 
   workflows:
