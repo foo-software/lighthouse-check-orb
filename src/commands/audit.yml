@@ -45,6 +45,14 @@ parameters:
     description: For Slack notifications - A version control pull request URL, typically from GitHub.
     type: string
     default: $CIRCLE_PULL_REQUEST
+  prCommentAccessToken:
+    description: Access token of a user to post PR comments.
+    type: string
+    default: ""
+  prCommentUrl:
+    description: "An endpoint to post comments to. Typically this will from GitHub's API. Example: https://api.github.com/repos/:owner/:repo/pulls/:pull_number/reviews"
+    type: string
+    default: ""
   sha:
     description: For Slack notifications - A version control sha, typically from GitHub.
     type: string
@@ -96,6 +104,8 @@ steps:
           --locale << parameters.locale >> \
           --outputDirectory /tmp/artifacts \
           --pr << parameters.pr >> \
+          --prCommentAccessToken << parameters.prCommentAccessToken >> \
+          --prCommentUrl << parameters.prCommentUrl >> \
           --sha << parameters.sha >> \
           --slackWebhookUrl << parameters.slackWebhookUrl >> \
           --tag << parameters.tag >> \

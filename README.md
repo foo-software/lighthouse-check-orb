@@ -155,6 +155,20 @@ You can choose from two ways of running audits - "locally" in a dockerized envir
     <td><code>undefined</code></td>
   </tr>
   <tr>
+    <td><code>prCommentAccessToken</code></td>
+    <td><a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">Access token</a> of a user to post PR comments.</td>
+    <td><code>string</code></td>
+    <td><code>both</code></td>
+    <td><code>undefined</code></td>
+  </tr>
+  <tr>
+    <td><code>prCommentUrl</code></td>
+    <td>An endpoint to post comments to. Typically this will from <a href="https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review">GitHub's API</a>. Example: <code>https://api.github.com/repos/:owner/:repo/pulls/:pull_number/reviews</code></td>
+    <td><code>string</code></td>
+    <td><code>both</code></td>
+    <td><code>undefined</code></td>
+  </tr>
+  <tr>
     <td><code>sha</code></td>
     <td>For Slack notifications: A version control <code>sha</code>, typically from GitHub.</td>
     <td><code>string</code></td>
