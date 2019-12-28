@@ -75,8 +75,8 @@ parameters:
     default: ""
   timeout:
     description: 'Minutes to timeout for remote runs. If "wait" option is "true" (it is by default), we wait for results. If this timeout is met before results are received an error is thrown.'
-    type: string
-    default: ""
+    type: integer
+    default: 10
   urls:
     description: A comma-separated list of URLs (or page API tokens if running remotely).
     type: string

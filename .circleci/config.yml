@@ -25,7 +25,6 @@ jobs:
   test-automated-lighthouse-check-with-pr-comments: 
     executor: lighthouse-check/default
     steps:
-      - run: echo https://api.github.com/repos/foo-software/lighthouse-check-orb/pulls/${CIRCLE_PULL_REQUEST##*/}/reviews
       - lighthouse-check/audit:
           apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
           prCommentAccessToken: $LIGHTHOUSE_CHECK_ACCESS_TOKEN
