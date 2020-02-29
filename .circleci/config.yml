@@ -51,7 +51,7 @@ workflows:
               only: master
   test-automated-lighthouse-check-and-fail-if-bad:
     jobs:
-      - test-automated-lighthouse-check:
+      - test-automated-lighthouse-check-and-fail-if-bad:
           filters:
             branches:
               only: master
