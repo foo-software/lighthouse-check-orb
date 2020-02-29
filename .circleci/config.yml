@@ -33,7 +33,7 @@ jobs:
           minAccessibilityScore: "30"
           minBestPracticesScore: "30"
           minPerformanceScore: "30"
-          minProgressiveWebAppScore: "100"
+          minProgressiveWebAppScore: "30"
           minSeoScore: "30"
 
 workflows:
