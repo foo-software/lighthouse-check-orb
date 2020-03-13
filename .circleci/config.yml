@@ -9,6 +9,7 @@ jobs:
     steps:
       - lighthouse-check/audit:
           urls: https://www.ourbranch.com
+          maxWaitForLoad: 60000
 
 workflows:
   build:
