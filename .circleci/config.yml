@@ -1,57 +1,16 @@
 version: 2.1
 
 orbs:
-  lighthouse-check: foo-software/lighthouse-check@dev:alpha
+  lighthouse-check: foo-software/lighthouse-check@0.0.8
 
 jobs:
-  test: 
+  lighthouse:
     executor: lighthouse-check/default
     steps:
       - lighthouse-check/audit:
-          urls: "https://www.foo.software,https://www.foo.software/tag/articles/"
-      - lighthouse-check/validate-status:
-          minAccessibilityScore: "30"
-          minBestPracticesScore: "30"
-          minPerformanceScore: "30"
-          minProgressiveWebAppScore: "30"
-          minSeoScore: "30"
-  test-automated-lighthouse-check: 
-    executor: lighthouse-check/default
-    steps:
-      - lighthouse-check/audit:
-          apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
-          urls: $LIGHTHOUSE_CHECK_URLS
-          tag: Orb
-  test-automated-lighthouse-check-and-fail-if-bad: 
-    executor: lighthouse-check/default
-    steps:
-      - lighthouse-check/audit:
-          apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
-          urls: $LIGHTHOUSE_CHECK_URLS
-          tag: Orb
-      - lighthouse-check/validate-status:
-          minAccessibilityScore: "30"
-          minBestPracticesScore: "30"
-          minPerformanceScore: "30"
-          minProgressiveWebAppScore: "30"
-          minSeoScore: "30"
-
+          urls: https://www.ourbranch.com
 workflows:
-  test:
+  version: 2
+  build:
     jobs:
-      - test:
-          filters:
-            branches:
-              only: master
-  test-automated-lighthouse-check:
-    jobs:
-      - test-automated-lighthouse-check:
-          filters:
-            branches:
-              only: master
-  test-automated-lighthouse-check-and-fail-if-bad:
-    jobs:
-      - test-automated-lighthouse-check-and-fail-if-bad:
-          filters:
-            branches:
-              only: master
+      - lighthouse
