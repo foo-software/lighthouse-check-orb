@@ -8,7 +8,8 @@ jobs:
     executor: lighthouse-check/default
     steps:
       - lighthouse-check/audit:
-          urls: https://www.ourbranch.com
+          urls: https://www.automated-lighthouse-check.com
+
 workflows:
   build:
     jobs:
