@@ -41,6 +41,10 @@ parameters:
     description: A locale for Lighthouse reports. Example - ja
     type: string
     default: ""
+  maxWaitForLoad:
+    description: The maximum amount of time to wait for a page to load in ms
+    type: integer
+    default: 45000
   pr:
     description: For Slack notifications - A version control pull request URL, typically from GitHub.
     type: string
@@ -102,6 +106,7 @@ steps:
           --configFile << parameters.configFile >> \
           --emulatedFormFactor << parameters.emulatedFormFactor >> \
           --locale << parameters.locale >> \
+          --maxWaitForLoad << parameters.maxWaitForLoad >> \
           --outputDirectory /tmp/artifacts \
           --pr << parameters.pr >> \
           --prCommentAccessToken << parameters.prCommentAccessToken >> \
