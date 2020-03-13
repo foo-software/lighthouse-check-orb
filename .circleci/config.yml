@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  lighthouse-check: foo-software/lighthouse-check@0.0.8
+  lighthouse-check: foo-software/lighthouse-check@dev:alpha
 
 jobs:
   lighthouse:
