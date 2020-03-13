@@ -10,7 +10,6 @@ jobs:
       - lighthouse-check/audit:
           urls: https://www.ourbranch.com
 workflows:
-  version: 2
   build:
     jobs:
       - lighthouse
