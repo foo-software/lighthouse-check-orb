@@ -7,11 +7,8 @@ jobs:
   lighthouse:
     executor: lighthouse-check/default
     steps:
-      - run: 
-          name: Ping
-          command: curl https://www.ourbranch.com
       - lighthouse-check/audit:
-          urls: https://www.ourbranch.com
+          urls: "https://www.ourbranch.com"
 
 workflows:
   build:
