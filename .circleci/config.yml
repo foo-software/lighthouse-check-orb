@@ -9,7 +9,7 @@ jobs:
     steps:
       - run: 
           name: Ping
-          command: curl -v -L https://www.foo.software/ 2>&1 | egrep "^> (Host:|GET)"
+          command: curl https://www.ourbranch.com
       - lighthouse-check/audit:
           urls: https://www.ourbranch.com
 
