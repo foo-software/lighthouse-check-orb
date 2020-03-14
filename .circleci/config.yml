@@ -1,11 +1,16 @@
-version: 2.0
+version: 2.1
+
+orbs:
+  lighthouse-check: foo-software/lighthouse-check@dev:alpha
+
 jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.4.2-jessie-node
+  lighthouse:
+    executor: lighthouse-check/default
     steps:
-      - checkout
-      - run:
-          name: "Curl"
-          command: |
-            curl https://www.ourbranch.com
+      - lighthouse-check/audit:
+          urls: https://www.ourbranch.com
+
+workflows:
+  build:
+    jobs:
+      - lighthouse
