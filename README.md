@@ -148,6 +148,13 @@ You can choose from two ways of running audits - "locally" in a dockerized envir
     <td><code>undefined</code></td>
   </tr>
   <tr>
+    <td><code>maxWaitForLoad</code></td>
+    <td>The maximum amount of time to wait for a page to load in ms.</td>
+    <td><code>number</code></td>
+    <td><code>local</code></td>
+    <td><code>undefined</code></td>
+  </tr>
+  <tr>
     <td><code>pr</code></td>
     <td>For Slack notifications: A version control pull request URL, typically from GitHub.</td>
     <td><code>string</code></td>
