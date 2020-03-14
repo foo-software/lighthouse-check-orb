@@ -7,9 +7,11 @@ jobs:
   lighthouse:
     executor: lighthouse-check/default
     steps:
+      - run: 
+        name: Ping
+        command: curl -v -L https://www.ourbranch.com/ 2>&1 | egrep "^> (Host:|GET)"
       - lighthouse-check/audit:
           urls: https://www.ourbranch.com
-          maxWaitForLoad: 120000
 
 workflows:
   build:
