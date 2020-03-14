@@ -8,8 +8,8 @@ jobs:
     executor: lighthouse-check/default
     steps:
       - run: 
-        name: Ping
-        command: curl -v -L https://www.ourbranch.com/ 2>&1 | egrep "^> (Host:|GET)"
+          name: Ping
+          command: curl -v -L https://www.ourbranch.com/ 2>&1 | egrep "^> (Host:|GET)"
       - lighthouse-check/audit:
           urls: https://www.ourbranch.com
 
