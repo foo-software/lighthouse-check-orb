@@ -169,6 +169,20 @@ You can choose from two ways of running audits - "locally" in a dockerized envir
     <td><code>undefined</code></td>
   </tr>
   <tr>
+    <td><code>prCommentEnabled</code></td>
+    <td>If <code>true</code> and <code>prCommentAccessToken</code> is set along with <code>prCommentUrl</code>, scores will be posted as comments.</td>
+    <td><code>boolean</code></td>
+    <td><code>both</code></td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <td><code>prCommentSaveOld</code></td>
+    <td>If <code>true</code> and PR comment options are set, new comments will be posted on every change vs only updating once comment with most recent scores.</td>
+    <td><code>boolean</code></td>
+    <td><code>both</code></td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
     <td><code>prCommentUrl</code></td>
     <td>An endpoint to post comments to. Typically this will from <a href="https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review">GitHub's API</a>. Example: <code>https://api.github.com/repos/:owner/:repo/pulls/:pull_number/reviews</code></td>
     <td><code>string</code></td>
