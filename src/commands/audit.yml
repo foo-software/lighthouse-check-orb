@@ -45,6 +45,10 @@ parameters:
     description: The maximum amount of time to wait for a page to load in ms
     type: integer
     default: 45000
+  overridesJsonFile:
+    description: A JSON file with config and option fields to overrides defaults.
+    type: string
+    default: ""
   pr:
     description: For Slack notifications - A version control pull request URL, typically from GitHub.
     type: string
@@ -116,6 +120,7 @@ steps:
           --locale << parameters.locale >> \
           --maxWaitForLoad << parameters.maxWaitForLoad >> \
           --outputDirectory /tmp/artifacts \
+          --overridesJsonFile << parameters.overridesJsonFile >> \
           --pr << parameters.pr >> \
           --prCommentAccessToken << parameters.prCommentAccessToken >> \
           --prCommentEnabled << parameters.prCommentEnabled >> \
