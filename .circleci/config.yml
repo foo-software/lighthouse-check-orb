@@ -38,6 +38,7 @@ jobs:
   test-config: 
     executor: lighthouse-check/default
     steps:
+      - checkout
       - lighthouse-check/audit:
           configFile: ./test/lighthouse-config.json
 
