@@ -40,7 +40,7 @@ jobs:
     steps:
       - checkout
       - lighthouse-check/audit:
-          configFile: ./test/lighthouse-config.json
+          configFile: ./test/config.json
 
 workflows:
   test:
