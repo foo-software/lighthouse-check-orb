@@ -35,6 +35,11 @@ jobs:
           minPerformanceScore: "30"
           minProgressiveWebAppScore: "30"
           minSeoScore: "30"
+  test-config: 
+    executor: lighthouse-check/default
+    steps:
+      - lighthouse-check/audit:
+          configFile: ./test/lighthouse-config.json
 
 workflows:
   test:
@@ -52,6 +57,12 @@ workflows:
   test-automated-lighthouse-check-and-fail-if-bad:
     jobs:
       - test-automated-lighthouse-check-and-fail-if-bad:
+          filters:
+            branches:
+              only: master
+  test-config:
+    jobs:
+      - test-config:
           filters:
             branches:
               only: master
