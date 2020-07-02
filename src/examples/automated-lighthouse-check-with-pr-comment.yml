@@ -1,4 +1,4 @@
-description: Run a Lighthouse audits from automated-lighthouse-check.com and posts results as PR comments.
+description: Run a Lighthouse audits from foo.software and posts results as PR comments.
 
 usage:
   version: 2.1

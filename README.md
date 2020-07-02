@@ -2,7 +2,7 @@
 
 > A CircleCI Orb for running Lighthouse audits automatically in a workflow with a rich set of extra features. Simple implementation or advanced customization including **Slack** notifications, **AWS S3** HTML report uploads, and more!
 
-This project provides **two ways of running audits** - "locally" by default in a dockerized environment or remotely via [Automated Lighthouse Check](https://www.automated-lighthouse-check.com) API. For basic usage, running locally will suffice, but if you'd like to maintain a historical record of Lighthouse audits and utilize other features, you can follow the [steps and examples](#usage-automated-lighthouse-check-api).
+This project provides **two ways of running audits** - "locally" by default in a dockerized environment or remotely via [Foo's Automated Lighthouse Check](https://www.foo.software/lighthouse) API. For basic usage, running locally will suffice, but if you'd like to maintain a historical record of Lighthouse audits and utilize other features, you can follow the [steps and examples](#usage-foo-api).
 
 <table>
   <tr>
@@ -23,7 +23,7 @@ This project provides **two ways of running audits** - "locally" by default in a
 Simple configuration or choose from a variety of features below. See the [example Lighthouse Check Orb implementation](#example-usage).
 
 - 💛 Lighthouse audit **multiple** URLs or just one.
-- 💛 Save a record of all your audits via [Automated Lighthouse Check](#usage-automated-lighthouse-check-api).
+- 💛 Save a record of all your audits via [Foo's Automated Lighthouse Check](#usage-foo-api).
 - 💗 Save HTML reports locally.
 - 💚 Upload HTML reports as artifacts.
 - 💙 Upload HTML reports to AWS S3.
@@ -43,7 +43,7 @@ Simple configuration or choose from a variety of features below. See the [exampl
 - [Usage](#usage)
   - [Standard Example](#usage-standard-example)
   - [Failing Workflows by Enforcing Minimum Scores](#usage-failing-workflows-by-enforcing-minimum-scores)
-  - [Automated Lighthouse Check API](#usage-automated-lighthouse-check-api)
+  - [Foo API](#usage-foo-api)
 
 # Screenshots
 
@@ -67,7 +67,7 @@ A visual look at the things you can do.
 
 ## Parameters
 
-You can choose from two ways of running audits - "locally" in a dockerized environment (by default) or remotely via the [Automated Lighthouse Check](https://www.automated-lighthouse-check.com) API. For directions about how to run remotely see the [Automated Lighthouse Check API Usage](#usage-automated-lighthouse-check-api) section. We denote which options are available to a run type with the `Run Type` values of either `local`, `remote`, or `both` respectively.
+You can choose from two ways of running audits - "locally" in a dockerized environment (by default) or remotely via the [Foo's Automated Lighthouse Check](https://www.foo.software/lighthouse) API. For directions about how to run remotely see the [Foo API Usage](#usage-foo-api) section. We denote which options are available to a run type with the `Run Type` values of either `local`, `remote`, or `both` respectively.
 
 <table>
   <tr>
@@ -79,7 +79,7 @@ You can choose from two ways of running audits - "locally" in a dockerized envir
   </tr>
   <tr>
     <td><code>apiToken</code></td>
-    <td>The automated-lighthouse-check.com account API token found in the dashboard.</td>
+    <td>The foo.software account API token found in the dashboard.</td>
     <td><code>string</code></td>
     <td><code>remote</code></td>
     <td><code>undefined</code></td>
@@ -319,13 +319,13 @@ workflows:
       - test
 ```
 
-## Usage: Automated Lighthouse Check API
+## Usage: Foo API
 
-[Automated Lighthouse Check](https://www.automated-lighthouse-check.com) can monitor your website's quality by running audits automatically! It can provide a historical record of audits over time to track progression and degradation of website quality. [Create a free account](https://www.automated-lighthouse-check.com/register) to get started. With this, not only will you have automatic audits, but also any that you trigger additionally. Below are steps to trigger audits on URLs that you've created in your account.
+[Foo's Automated Lighthouse Check](https://www.foo.software/lighthouse) can monitor your website's quality by running audits automatically! It can provide a historical record of audits over time to track progression and degradation of website quality. [Create a free account](https://www.foo.software/register) to get started. With this, not only will you have automatic audits, but also any that you trigger additionally. Below are steps to trigger audits on URLs that you've created in your account.
 
 #### Trigger Audits on All Pages in an Account
 
-- Navigate to [your account details](https://www.automated-lighthouse-check.com/account), click into "Account Management" and make note of the "API Token".
+- Navigate to [your account details](https://www.foo.software/account), click into "Account Management" and make note of the "API Token".
 - Use the account token as the [`apiToken` parameter](#parameters).
 
 > Basic example
@@ -352,8 +352,8 @@ usage:
 
 #### Trigger Audits on Only Certain Pages in an Account
 
-- Navigate to [your account details](https://www.automated-lighthouse-check.com/account), click into "Account Management" and make note of the "API Token".
-- Navigate to [your dashboard](https://www.automated-lighthouse-check.com/dashboard) and once you've created URLs to monitor, click on the "More" link of the URL you'd like to use. From the URL details screen, click the "Edit" link at the top of the page. You should see an "API Token" on this page. It represents the token for this specific page (not to be confused with an **account** API token).
+- Navigate to [your account details](https://www.foo.software/account), click into "Account Management" and make note of the "API Token".
+- Navigate to [your dashboard](https://www.foo.software/dashboard) and once you've created URLs to monitor, click on the "More" link of the URL you'd like to use. From the URL details screen, click the "Edit" link at the top of the page. You should see an "API Token" on this page. It represents the token for this specific page (not to be confused with an **account** API token).
 - Use the account token as the [`apiToken` parameter](#parameters) and page token (or group of page tokens) as [`urls` parameter](#parameters).
 
 > Basic example

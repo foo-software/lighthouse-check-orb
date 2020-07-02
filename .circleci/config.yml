@@ -15,14 +15,14 @@ jobs:
           minPerformanceScore: "30"
           minProgressiveWebAppScore: "30"
           minSeoScore: "30"
-  test-automated-lighthouse-check: 
+  test-foo: 
     executor: lighthouse-check/default
     steps:
       - lighthouse-check/audit:
           apiToken: $LIGHTHOUSE_CHECK_API_TOKEN
           urls: $LIGHTHOUSE_CHECK_URLS
           tag: Orb
-  test-automated-lighthouse-check-and-fail-if-bad: 
+  test-foo-and-fail-if-bad: 
     executor: lighthouse-check/default
     steps:
       - lighthouse-check/audit:
@@ -49,15 +49,15 @@ workflows:
           filters:
             branches:
               only: master
-  test-automated-lighthouse-check:
+  test-foo:
     jobs:
-      - test-automated-lighthouse-check:
+      - test-foo:
           filters:
             branches:
               only: master
-  test-automated-lighthouse-check-and-fail-if-bad:
+  test-foo-and-fail-if-bad:
     jobs:
-      - test-automated-lighthouse-check-and-fail-if-bad:
+      - test-foo-and-fail-if-bad:
           filters:
             branches:
               only: master
