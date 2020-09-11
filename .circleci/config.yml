@@ -41,6 +41,12 @@ jobs:
       - checkout
       - lighthouse-check/audit:
           configFile: ./test/config.json
+  test-extra-headers: 
+    executor: lighthouse-check/default
+    steps:
+      - lighthouse-check/audit:
+          urls: "https://lighthouse-check-action.now.sh/"
+          extraHeaders: '{ \"x-test-1\": \"hello\", \"x-test-2\": \"world\" }'
 
 workflows:
   test:
@@ -67,3 +73,6 @@ workflows:
           filters:
             branches:
               only: master
+  test-extra-headers:
+    jobs:
+      - test-extra-headers
