@@ -142,7 +142,7 @@ You can choose from two ways of running audits - "locally" in a dockerized envir
   </tr>
   <tr>
     <td><code>extraHeaders</code></td>
-    <td>Stringified HTTP Header object key/value pairs to send in requests. example: <code>'{ "x-hello-world": "foobar", "x-some-other-thing": "hi" }'</code></td>
+    <td>Stringified HTTP Header object key/value pairs to send in requests. example: <code>'{ \"x-hello-world\": \"foobar\", \"x-some-other-thing\": \"hi\" }'</code></td>
     <td><code>string</code></td>
     <td><code>local</code></td>
     <td><code>undefined</code></td>
