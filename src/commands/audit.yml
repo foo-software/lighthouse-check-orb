@@ -111,7 +111,7 @@ steps:
       name: Run a Lighthouse audit and save results
       command: |
         mkdir /tmp/artifacts
-        EXTRA_HEADERS="$( jq --null-input --compact-output --arg str "<< parameters.extraHeaders >> '$str' )"
+        EXTRA_HEADERS="$( jq --null-input --compact-output --arg str "<< parameters.extraHeaders >>" '$str' )"
         echo $EXTRA_HEADERS
         lighthouse-check --verbose --isOrb \
           --apiToken << parameters.apiToken >> \
