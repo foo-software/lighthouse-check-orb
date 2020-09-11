@@ -112,8 +112,6 @@ steps:
       command: |
         mkdir /tmp/artifacts
         echo "<< parameters.extraHeaders >>"
-        EXTRA_HEADERS="$( jq --null-input --compact-output --arg str "<< parameters.extraHeaders >>" '$str' )"
-        echo $EXTRA_HEADERS
         lighthouse-check --verbose --isOrb \
           --apiToken << parameters.apiToken >> \
           --author << parameters.author >> \
