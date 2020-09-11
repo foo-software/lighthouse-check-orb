@@ -46,7 +46,7 @@ jobs:
     steps:
       - lighthouse-check/audit:
           urls: "https://lighthouse-check-action.now.sh/"
-          extraHeaders: '{ "x-hello-world": "foobar", "x-some-other-thing": "hi" }'
+          extraHeaders: '{ "x-hello-world": "foobar", "x-some-other-thing": "hello" }'
 
 workflows:
   test:
