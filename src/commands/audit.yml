@@ -111,6 +111,7 @@ steps:
       name: Run a Lighthouse audit and save results
       command: |
         mkdir /tmp/artifacts
+        echo << parameters.extraHeaders >>
         lighthouse-check --verbose --isOrb \
           --apiToken << parameters.apiToken >> \
           --author << parameters.author >> \
