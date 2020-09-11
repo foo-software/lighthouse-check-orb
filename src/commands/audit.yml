@@ -122,7 +122,7 @@ steps:
           --branch << parameters.branch >> \
           --configFile << parameters.configFile >> \
           --emulatedFormFactor << parameters.emulatedFormFactor >> \
-          --extraHeaders << parameters.extraHeaders >> \
+          --extraHeaders "<< parameters.extraHeaders >>" \
           --locale << parameters.locale >> \
           --maxWaitForLoad << parameters.maxWaitForLoad >> \
           --outputDirectory /tmp/artifacts \
