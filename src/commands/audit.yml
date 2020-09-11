@@ -37,6 +37,10 @@ parameters:
     description: Lighthouse setting only used for local audits. See lighthouse-check NPM module for details.
     type: string
     default: ""
+  extraHeaders:
+    description: Stringified HTTP Header object key/value pairs to send in requests.
+    type: string
+    default: ""
   locale:
     description: A locale for Lighthouse reports. Example - ja
     type: string
@@ -117,6 +121,7 @@ steps:
           --branch << parameters.branch >> \
           --configFile << parameters.configFile >> \
           --emulatedFormFactor << parameters.emulatedFormFactor >> \
+          --extraHeaders << parameters.extraHeaders >> \
           --locale << parameters.locale >> \
           --maxWaitForLoad << parameters.maxWaitForLoad >> \
           --outputDirectory /tmp/artifacts \
