@@ -4,7 +4,7 @@ usage:
   version: 2.1
 
   orbs:
-    lighthouse-check: foo-software/lighthouse-check@0.0.6 # ideally later :)
+    lighthouse-check: foo-software/lighthouse-check@0.0.13 # ideally later :)
 
   jobs:
     test: 
