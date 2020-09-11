@@ -75,4 +75,7 @@ workflows:
               only: master
   test-extra-headers:
     jobs:
-      - test-extra-headers
+      - test-extra-headers:
+          filters:
+            branches:
+              only: master
