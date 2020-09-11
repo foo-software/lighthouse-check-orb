@@ -111,6 +111,7 @@ steps:
       name: Run a Lighthouse audit and save results
       command: |
         mkdir /tmp/artifacts
+        echo "<< parameters.extraHeaders >>"
         EXTRA_HEADERS="$( jq --null-input --compact-output --arg str "<< parameters.extraHeaders >>" '$str' )"
         echo $EXTRA_HEADERS
         lighthouse-check --verbose --isOrb \
@@ -123,7 +124,7 @@ steps:
           --branch << parameters.branch >> \
           --configFile << parameters.configFile >> \
           --emulatedFormFactor << parameters.emulatedFormFactor >> \
-          --extraHeaders "$EXTRA_HEADERS" \
+          --extraHeaders "<< parameters.extraHeaders >>" \
           --locale << parameters.locale >> \
           --maxWaitForLoad << parameters.maxWaitForLoad >> \
           --outputDirectory /tmp/artifacts \
